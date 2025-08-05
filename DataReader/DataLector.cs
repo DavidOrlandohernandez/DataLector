@@ -24,6 +24,7 @@ namespace DataReader
             textBox1.Enabled = false;
             textBox2.Enabled = false;
             textBox3.Enabled = false;
+            txbscripts.Enabled = false;
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -139,11 +140,11 @@ namespace DataReader
                 maxrows = maxrows + worksheet.Cells.MaxDataRow;
                 maxcolumnscols = worksheet.Cells.MaxDataColumn;
             }
-             
-            
+
+
             for (int wsi = 0; wsi < collection.Count; wsi++)
-            {                
-                Worksheet worksheet = collection[wsi];                
+            {
+                Worksheet worksheet = collection[wsi];
                 Console.WriteLine("Nombre de la hoja: " + worksheet.Name);
                 int rows = worksheet.Cells.MaxDataRow;
                 int cols = worksheet.Cells.MaxDataColumn;
@@ -157,8 +158,8 @@ namespace DataReader
                     ////////////////////////////////////////////////////
                     int progresoActual = (int)(contador * 100.00 / maxrows);
                     if (progresoActual != progresoAnterio)
-                    {                     
-                        progressBar2.Value = progresoActual;                        
+                    {
+                        progressBar2.Value = progresoActual;
                         progresoAnterio = progresoActual;
                     }
                     ////////////////////////////////////////////////////
@@ -174,9 +175,9 @@ namespace DataReader
                             }
                         }
 
-                            Console.WriteLine(worksheet.Cells[i, j].Value + " | ");
+                        Console.WriteLine(worksheet.Cells[i, j].Value + " | ");
                         if (i != 0)
-                        {                                                       
+                        {
                             if (j == 0)
                             {
                                 cliente.id = contador; //= (int)worksheet.Cells[i, j].Value;
@@ -193,7 +194,7 @@ namespace DataReader
                         }
                     }
                     Console.WriteLine(" ");
-                }                
+                }
             }
             labelTxtExcel.Text = contador.ToString();
             dataGridView1.DataSource = clienteList;
@@ -212,10 +213,17 @@ namespace DataReader
         {
             List<ClienteEnt> clientList = new List<ClienteEnt>();
             List<List<string>> datos = new List<List<string>>();
+            List<String> tasaList6400 = new List<string>();
+            List<String> tasaList6001 = new List<string>();
+            List<String> tasaList6500 = new List<string>();
+            List<String> tasaList6800 = new List<string>();
+            List<String> tasaList9300 = new List<string>();
             int contador = 0;
             int progresoAnterio = -1;
             int indice = 0;
             TimeSpan diferencia;
+            int iNumeroDeProducto = 0, iPuntualBc20 = 0, iValorBc20 = 0, iSaldoPromedioCaptacion = 0, iNCuentaCaptacion = 0, iTasa = 0;
+
             try
             {
                 var lines = File.ReadLines(path);
@@ -249,18 +257,85 @@ namespace DataReader
                         {
                             string[] arregloMayusculas = campos.Select(cadena => cadena.ToUpper()).ToArray();
                             indice = Array.IndexOf(arregloMayusculas, "CLIENTE");
+                            //string temp = campos[237].ToString().Trim();
+                            iNumeroDeProducto = Array.IndexOf(arregloMayusculas, "NUMERO DE PRODUCTO");
+                            iPuntualBc20 = Array.IndexOf(arregloMayusculas, "PUNTUAL_BC_20");
+                            iValorBc20 = Array.IndexOf(arregloMayusculas, "VALOR_BC_20");
+                            iSaldoPromedioCaptacion = Array.IndexOf(arregloMayusculas, "SALDO PROMEDIO CAPTACION");
+                            iNCuentaCaptacion = Array.IndexOf(arregloMayusculas, "NUMERO DE CUENTA DE CAPTACION");
+                            iTasa = Array.IndexOf(arregloMayusculas, "TASA");
                         }
+
+                        /////////////////////////////////////////////////////////////////////////////////////
+                        if (iNumeroDeProducto != -1)
+                        {
+                            if (campos[iNumeroDeProducto].ToString().Trim() == "6400")
+                            {
+                                string temp = campos[iPuntualBc20].ToString().Trim();
+                                if (campos[iPuntualBc20].ToString().Trim() == "0" || campos[iPuntualBc20].ToString().Trim() == null)
+                                {
+                                    String result = "el cliente: " + campos[iPuntualBc20].ToString().Trim() + " tiene el campo PUNTUAL_BC_20 igual a 0 o nulo";
+                                }
+                                string temp1 = campos[iValorBc20].ToString().Trim();
+                                if (campos[iValorBc20].ToString().Trim() == "0" || campos[iValorBc20].ToString().Trim() == null)
+                                {
+                                    String result = "el cliente: " + campos[iValorBc20].ToString().Trim() + " tiene el campo VALOR_BC_20 igual a 0 o nulo";
+                                }
+                                string temp2 = campos[iSaldoPromedioCaptacion].ToString().Trim();
+                                if (campos[iSaldoPromedioCaptacion].ToString().Trim() == "0" || campos[iSaldoPromedioCaptacion].ToString().Trim() == null)
+                                {
+                                    String result = "el cliente: " + campos[iSaldoPromedioCaptacion].ToString().Trim() + " tiene el campo SALDO_PROMEDIO_CAPTACION igual a 0 o nulo";
+                                }
+                                if (campos[iNCuentaCaptacion].ToString().Trim() == "0" || campos[iNCuentaCaptacion].ToString().Trim() == null)
+                                {
+                                    String result = "el cliente: " + campos[iNCuentaCaptacion].ToString().Trim() + " tiene el campo SALDO_PROMEDIO_CAPTACION igual a 0 o nulo";
+                                }
+                            }
+
+                            if (campos[iNumeroDeProducto].ToString().Trim() == "6400")
+                            {
+                                tasaList6400.Add(campos[iTasa].ToString().Trim());
+                            }
+                            if (campos[iNumeroDeProducto].ToString().Trim() == "6001")
+                            {
+                                tasaList6001.Add(campos[iTasa].ToString().Trim());
+                            }
+                            if (campos[iNumeroDeProducto].ToString().Trim() == "6500")
+                            {
+                                tasaList6500.Add(campos[iTasa].ToString().Trim());
+                            }
+                            if (campos[iNumeroDeProducto].ToString().Trim() == "6800")
+                            {
+                                tasaList6800.Add(campos[iTasa].ToString().Trim());
+                            }
+                            if (campos[iNumeroDeProducto].ToString().Trim() == "9300")
+                            {
+                                tasaList9300.Add(campos[iTasa].ToString().Trim());
+                            }
+                        }
+                        ////////////////////////////////////////////////////////////////////////////////////////
+
                         if (opcion == 2)
                         {
                             ent.cliente = campos[indice].ToString().Trim();
                             ent.nombre = "UNKNOWN";
                             ent.id = contador;
+                            if (iNumeroDeProducto != -1)
+                            {
+                                ent.tasa = campos[iTasa].ToString().Trim();
+                                ent.producto = campos[iNumeroDeProducto].ToString().Trim();
+                            }
                         }
                         else if (opcion == 1)
                         {
                             ent.cliente = campos[indice].ToString().Trim();
                             ent.nombre = "UNKNOWN";
                             ent.id = contador;
+                            if (iNumeroDeProducto != -1)
+                            {
+                                ent.tasa = campos[iTasa].ToString().Trim();
+                                ent.producto = campos[iNumeroDeProducto].ToString().Trim();
+                            }
                         }
                         clientList.Add(ent);
                     }
@@ -280,8 +355,10 @@ namespace DataReader
                         dataGridView2.Columns[1].Visible = false;
                         dataGridView2.Columns[0].HeaderText = "ID";
                         dataGridView2.Columns[2].HeaderText = "CLIENTE";
-                        dataGridView2.Columns[0].Width = 55;                        
-                        label15.Text = diferencia.TotalSeconds.ToString("F2") +" s";
+                        //dataGridView2.Columns[3].HeaderText = "PRODUCTO";
+                        //dataGridView2.Columns[4].HeaderText = "TASA";
+                        dataGridView2.Columns[0].Width = 55;
+                        label15.Text = diferencia.TotalSeconds.ToString("F2") + " s";
 
 
                     }
@@ -295,12 +372,59 @@ namespace DataReader
                         dataGridView1.Columns[1].Visible = false;
                         dataGridView1.Columns[0].HeaderText = "ID";
                         dataGridView1.Columns[2].HeaderText = "CLIENTE";
+                        //dataGridView2.Columns[3].HeaderText = "PRODUCTO";
+                        //dataGridView2.Columns[4].HeaderText = "TASA";
                         dataGridView1.Columns[0].Width = 55;
                         String.Format("");
-                        label14.Text = diferencia.TotalSeconds.ToString("F2") +" s";
+                        label14.Text = diferencia.TotalSeconds.ToString("F2") + " s";
 
                     }
-                }              
+                }
+
+                var duplicateStrings = tasaList6400.GroupBy(s => s)
+                                     .Where(g => g.Count() > 1)
+                                     .Select(g => g.Key)
+                                     .ToList();
+                //duplicateStrings.ForEach(TASA => Console.WriteLine($"|  {TASA}"));
+                String todasLasTasas = "";
+                duplicateStrings.ForEach(TASA => todasLasTasas += ($"|  {TASA}"));
+                LABEL6400.Text = todasLasTasas;
+
+                var duplicate6001 = tasaList6001.GroupBy(s => s)
+                                     .Where(g => g.Count() > 1)
+                                     .Select(g => g.Key)
+                                     .ToList();
+                //duplicateStrings.ForEach(TASA => Console.WriteLine($"|  {TASA}"));
+                String todasLasTasas6001 = "";
+                duplicate6001.ForEach(TASA => todasLasTasas6001 += ($"|  {TASA}"));
+                LABEL6001.Text = todasLasTasas6001;
+
+                var duplicate6500 = tasaList6500.GroupBy(s => s)
+                                    .Where(g => g.Count() > 1)
+                                    .Select(g => g.Key)
+                                    .ToList();
+                //duplicateStrings.ForEach(TASA => Console.WriteLine($"|  {TASA}"));
+                String todasLasTasas6500 = "";
+                duplicate6500.ForEach(TASA => todasLasTasas6500 += ($"|  {TASA}"));
+                LABEL6500.Text = todasLasTasas6500;
+
+                var duplicate6800 = tasaList6800.GroupBy(s => s)
+                                   .Where(g => g.Count() > 1)
+                                   .Select(g => g.Key)
+                                   .ToList();
+                //duplicateStrings.ForEach(TASA => Console.WriteLine($"|  {TASA}"));
+                String todasLasTasas6800 = "";
+                duplicate6800.ForEach(TASA => todasLasTasas6800 += ($"|  {TASA}"));
+                LABEL6800.Text = todasLasTasas6800;
+
+                var duplicate9300 = tasaList9300.GroupBy(s => s)
+                                .Where(g => g.Count() > 1)
+                                .Select(g => g.Key)
+                                .ToList();
+                //duplicateStrings.ForEach(TASA => Console.WriteLine($"|  {TASA}"));
+                String todasLasTasas9300 = "";
+                duplicate9300.ForEach(TASA => todasLasTasas9300 += ($"|  {TASA}"));
+                LABEL9300.Text = todasLasTasas9300;
             }
             catch (FileNotFoundException)
             {
@@ -458,7 +582,7 @@ namespace DataReader
                     if (resultado == DialogResult.Yes)
                     {
                         textBox1.Text = ruta;
-                        readExcel(ruta);                        
+                        readExcel(ruta);
                     }
                 }
                 catch (Exception ex)
@@ -467,6 +591,178 @@ namespace DataReader
                         "Errro de cargado", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
+        }
+
+        private void label16_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnscript_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog choofdlog = new OpenFileDialog();
+            choofdlog.Filter = "All Files (*.*)|*.*";
+            choofdlog.FilterIndex = 1;
+            choofdlog.Multiselect = true;
+            String ruta = String.Empty;
+            txbscripts.Text = String.Empty;
+            if (choofdlog.ShowDialog() == DialogResult.OK)
+            {
+                string sFileName = choofdlog.FileName;
+                ruta = choofdlog.FileNames[0].ToString().Trim().ToUpper();
+                txbscripts.Text = ruta;
+
+                if (ruta == String.Empty)
+                {
+                    MessageBox.Show("Favor de colocar una ruta", "Caja de texto vacia",
+                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    btnscript.Focus();
+                }
+            }
+            if (ruta != String.Empty)
+            {
+                try
+                {
+                    DialogResult resultado = MessageBox.Show("¿Está seguro de que desea continuar?",
+                        "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (resultado == DialogResult.Yes)
+                    {
+                        txbscripts.Text = ruta;
+                        GenerarScripts(ruta,1);
+                      
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error al intentar cargar el Excel: " + ex.Message.ToString().ToUpper().Trim(),
+                        "Errro de cargado", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        public void GenerarScripts(String path, int opcion)
+        {
+            List<String> scriptList = new List<String>();
+            List<List<string>> datos = new List<List<string>>();
+
+            int contador = 0;
+            int progresoAnterio = -1;
+            int iNumSolicitud = 0;
+            TimeSpan diferencia;
+            String update = "";
+            int iScorSituacionPago = 0, iDeterminaSituacionPago = 0,
+                iScorSituacionCredito = 0, iDeterminaSituacionCredito = 0,
+                iScoreAbonMenPres = 0, iDeterminacionAbonMenPres = 0;
+
+            try
+            {
+                var lines = File.ReadLines(path);
+                double cantLines = lines.Count();
+
+                DateTime momento1 = DateTime.Now;
+                //LECTURA RENGLON POR RENGLON DEL TEXT
+                using (StreamReader reader = new StreamReader(path))
+                {
+                    string line;
+                    //LECTURA RENGLON POR RENGLON DEL TEXT
+                    while ((line = reader.ReadLine()) != null)
+                    {
+                        contador++;
+                        //CALCULADOR DE TIEMPO PARA PROGRESSBAR
+                        int progresoActual = (int)(contador * 100.00 / cantLines);
+                        if (progresoActual != progresoAnterio)
+                        {
+                            if (opcion == 2)
+                            {
+                                progressBar1.Value = progresoActual;
+                            }
+                            else
+                            {
+                                progressBar2.Value = progresoActual;
+                            }
+                            progresoAnterio = progresoActual;
+                        }
+                        string[] campos = line.Split(',');
+                        if (contador == 1)
+                        {
+                            //OBTENEMOS LOS INDICES                           
+                            iNumSolicitud = Array.IndexOf(campos, "num_solicitud");
+                            iScorSituacionPago = Array.IndexOf(campos, "scor_situacion_pago");
+                            iDeterminaSituacionPago = Array.IndexOf(campos, "determinacion_situacion_pago");
+                            iScorSituacionCredito = Array.IndexOf(campos, "scor_situacion_credito");
+                            iDeterminaSituacionCredito = Array.IndexOf(campos, "determinacion_situacion_credito");
+                            iScoreAbonMenPres = Array.IndexOf(campos, "scor_abonomensualprestamos");
+                            iDeterminacionAbonMenPres = Array.IndexOf(campos, "determinacion_abonomensualprestamos".Trim());
+                        }
+                        if (campos[iDeterminaSituacionCredito].Trim() == "NULL")
+                        {
+                           campos[iDeterminaSituacionCredito] = "";
+                        }
+                            update = "";
+                        update = "BEGIN; UPDATE bdisolic:ss_resum_scor_fin " + "SET situacion_pago = " + campos[iDeterminaSituacionPago] + "," + " situacion_credito = '" + campos[iDeterminaSituacionCredito].Trim() + "'," + " abonomensualprestamos = " + campos[iDeterminacionAbonMenPres] + " WHERE num_solicitud = " + "'" + campos[iNumSolicitud].Trim() + "'; COMMIT;";
+                        scriptList.Add(update);
+
+                        if (opcion == 5)
+                        {
+                            double iDeterminacionAbonMenPresAux = 0;
+                            double iScoreAbonMenPresAux = 0;
+                            if (double.TryParse(campos[iScoreAbonMenPres], out iScoreAbonMenPresAux) && double.TryParse(campos[iDeterminacionAbonMenPres], out iDeterminacionAbonMenPresAux))
+                            { //DETERMINA SI EL CAMPO ABONO MENSUAL DE LA SCORFIN ES 0 
+
+                                if (iScoreAbonMenPresAux <= 0 && iDeterminacionAbonMenPresAux > 0)
+                                {
+                                    update = "";
+                                    update = "BEGIN; UPDATE ss_resum_scor_fin " + "SET abonomensuaLmuebles = " + campos[iDeterminacionAbonMenPres] + " WHERE num_solicitud = " + "'" + campos[iNumSolicitud].Trim() + "'; COMMIT;";
+                                    scriptList.Add(update);
+                                }
+                            }
+
+                            if (double.TryParse(campos[iDeterminacionAbonMenPres], out iDeterminacionAbonMenPresAux) && double.TryParse(campos[iScoreAbonMenPres], out iScoreAbonMenPresAux))
+                            {
+
+                                if (iDeterminacionAbonMenPresAux <= 0 && iScoreAbonMenPresAux > 0)
+                                {
+                                    update = "";
+                                    update = "BEGIN; UPDATE ss_revision_determinacion " + "SET abonomensuaLmuebles = " + campos[iScoreAbonMenPres] + " WHERE num_solicitud = " + "'" + campos[iNumSolicitud].Trim() + "'; COMMIT;";
+                                    scriptList.Add(update);
+                                }
+                            }
+                        }
+
+                    }
+                    DateTime momento2 = DateTime.Now;
+                    diferencia = momento2 - momento1;
+                    scriptList.RemoveAt(0);
+                    FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog();
+                    if (folderBrowserDialog.ShowDialog() == DialogResult.OK)
+                {
+                    string selectedPath = folderBrowserDialog.SelectedPath;
+                    //MessageBox.Show("Carpeta seleccionada: " + selectedPath);
+                    textBox3.Text = selectedPath;
+                    DialogResult resultado = MessageBox.Show("¿Está seguro de que desea continuar?",
+                                    "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (resultado == DialogResult.Yes)
+                    {
+                            string[] formattedStrings = new string[scriptList.Count];
+                    for (int i = 0; i < scriptList.Count; i++)
+                    {
+                        formattedStrings[i] = scriptList[i];
+                    }
+              
+                    File.WriteAllLines(selectedPath + "\\scripts.txt", formattedStrings, Encoding.UTF8);
+                }
+            
+                 }
+                }
+            }
+            catch (FileNotFoundException)
+            {
+                Console.WriteLine("El archivo no fue encontrado.");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error :" + ex.Message);
+            }         
         }
     }
 }

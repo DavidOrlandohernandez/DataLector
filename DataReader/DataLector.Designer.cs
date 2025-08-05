@@ -62,12 +62,29 @@
             progressBar2 = new ProgressBar();
             label11 = new Label();
             label12 = new Label();
+            label16 = new Label();
+            LABEL6400 = new Label();
+            LABEL6001 = new Label();
+            LABEL6500 = new Label();
+            LABEL6800 = new Label();
+            label13 = new Label();
+            label17 = new Label();
+            label18 = new Label();
+            label19 = new Label();
+            label20 = new Label();
+            LABEL9300 = new Label();
+            groupBox3 = new GroupBox();
+            groupBox5 = new GroupBox();
+            btnscript = new Button();
+            label21 = new Label();
+            txbscripts = new TextBox();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView3).BeginInit();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             groupBox4.SuspendLayout();
+            groupBox5.SuspendLayout();
             SuspendLayout();
             // 
             // button1
@@ -173,16 +190,16 @@
             dataGridView1.Location = new Point(752, 20);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 62;
-            dataGridView1.Size = new Size(348, 192);
+            dataGridView1.Size = new Size(454, 192);
             dataGridView1.TabIndex = 10;
             // 
             // dataGridView2
             // 
             dataGridView2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView2.Location = new Point(753, 20);
+            dataGridView2.Location = new Point(752, 22);
             dataGridView2.Name = "dataGridView2";
             dataGridView2.RowHeadersWidth = 62;
-            dataGridView2.Size = new Size(347, 192);
+            dataGridView2.Size = new Size(454, 192);
             dataGridView2.TabIndex = 11;
             // 
             // dataGridView3
@@ -191,7 +208,7 @@
             dataGridView3.Location = new Point(9, 93);
             dataGridView3.Name = "dataGridView3";
             dataGridView3.RowHeadersWidth = 62;
-            dataGridView3.Size = new Size(537, 212);
+            dataGridView3.Size = new Size(537, 319);
             dataGridView3.TabIndex = 12;
             // 
             // button3
@@ -225,7 +242,7 @@
             groupBox1.Controls.Add(label1);
             groupBox1.Location = new Point(12, 12);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(1137, 259);
+            groupBox1.Size = new Size(1218, 259);
             groupBox1.TabIndex = 15;
             groupBox1.TabStop = false;
             // 
@@ -234,7 +251,7 @@
             label14.AutoSize = true;
             label14.Font = new Font("Microsoft Sans Serif", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label14.ForeColor = Color.YellowGreen;
-            label14.Location = new Point(1051, 225);
+            label14.Location = new Point(1177, 225);
             label14.Name = "label14";
             label14.Size = new Size(24, 25);
             label14.TabIndex = 15;
@@ -273,7 +290,7 @@
             groupBox2.Controls.Add(label4);
             groupBox2.Location = new Point(12, 268);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(1137, 262);
+            groupBox2.Size = new Size(1218, 262);
             groupBox2.TabIndex = 16;
             groupBox2.TabStop = false;
             // 
@@ -282,7 +299,7 @@
             label15.AutoSize = true;
             label15.Font = new Font("Microsoft Sans Serif", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label15.ForeColor = Color.YellowGreen;
-            label15.Location = new Point(1049, 224);
+            label15.Location = new Point(1175, 224);
             label15.Name = "label15";
             label15.Size = new Size(24, 25);
             label15.TabIndex = 20;
@@ -309,7 +326,7 @@
             groupBox4.Controls.Add(button3);
             groupBox4.Location = new Point(12, 536);
             groupBox4.Name = "groupBox4";
-            groupBox4.Size = new Size(558, 318);
+            groupBox4.Size = new Size(558, 418);
             groupBox4.TabIndex = 16;
             groupBox4.TabStop = false;
             // 
@@ -366,7 +383,7 @@
             // 
             progressBar1.Location = new Point(764, 483);
             progressBar1.Name = "progressBar1";
-            progressBar1.Size = new Size(297, 34);
+            progressBar1.Size = new Size(419, 34);
             progressBar1.TabIndex = 17;
             // 
             // timer1
@@ -378,7 +395,7 @@
             // 
             progressBar2.Location = new Point(762, 228);
             progressBar2.Name = "progressBar2";
-            progressBar2.Size = new Size(295, 34);
+            progressBar2.Size = new Size(421, 34);
             progressBar2.TabIndex = 18;
             // 
             // label11
@@ -396,16 +413,186 @@
             // 
             label12.AutoSize = true;
             label12.Font = new Font("Segoe UI Black", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label12.Location = new Point(797, 723);
+            label12.Location = new Point(876, 552);
             label12.Name = "label12";
             label12.Size = new Size(0, 25);
             label12.TabIndex = 15;
+            // 
+            // label16
+            // 
+            label16.AutoSize = true;
+            label16.Font = new Font("Segoe UI Black", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label16.Location = new Point(588, 643);
+            label16.Name = "label16";
+            label16.Size = new Size(226, 25);
+            label16.TabIndex = 19;
+            label16.Text = "TASAS POR PRODUCTO:";
+            label16.Click += label16_Click;
+            // 
+            // LABEL6400
+            // 
+            LABEL6400.AutoSize = true;
+            LABEL6400.Font = new Font("Segoe UI Black", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            LABEL6400.Location = new Point(600, 710);
+            LABEL6400.Name = "LABEL6400";
+            LABEL6400.Size = new Size(23, 25);
+            LABEL6400.TabIndex = 20;
+            LABEL6400.Text = "0";
+            // 
+            // LABEL6001
+            // 
+            LABEL6001.AutoSize = true;
+            LABEL6001.Font = new Font("Segoe UI Black", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            LABEL6001.Location = new Point(600, 764);
+            LABEL6001.Name = "LABEL6001";
+            LABEL6001.Size = new Size(23, 25);
+            LABEL6001.TabIndex = 21;
+            LABEL6001.Text = "0";
+            // 
+            // LABEL6500
+            // 
+            LABEL6500.AutoSize = true;
+            LABEL6500.Font = new Font("Segoe UI Black", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            LABEL6500.Location = new Point(600, 814);
+            LABEL6500.Name = "LABEL6500";
+            LABEL6500.Size = new Size(23, 25);
+            LABEL6500.TabIndex = 22;
+            LABEL6500.Text = "0";
+            // 
+            // LABEL6800
+            // 
+            LABEL6800.AutoSize = true;
+            LABEL6800.Font = new Font("Segoe UI Black", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            LABEL6800.Location = new Point(600, 864);
+            LABEL6800.Name = "LABEL6800";
+            LABEL6800.Size = new Size(23, 25);
+            LABEL6800.TabIndex = 23;
+            LABEL6800.Text = "0";
+            // 
+            // label13
+            // 
+            label13.AutoSize = true;
+            label13.Font = new Font("Segoe UI Black", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label13.Location = new Point(598, 839);
+            label13.Name = "label13";
+            label13.Size = new Size(168, 25);
+            label13.TabIndex = 27;
+            label13.Text = "PRODUCTO 6800:";
+            // 
+            // label17
+            // 
+            label17.AutoSize = true;
+            label17.Font = new Font("Segoe UI Black", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label17.Location = new Point(600, 789);
+            label17.Name = "label17";
+            label17.Size = new Size(168, 25);
+            label17.TabIndex = 26;
+            label17.Text = "PRODUCTO 6500:";
+            // 
+            // label18
+            // 
+            label18.AutoSize = true;
+            label18.Font = new Font("Segoe UI Black", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label18.Location = new Point(600, 739);
+            label18.Name = "label18";
+            label18.Size = new Size(166, 25);
+            label18.TabIndex = 25;
+            label18.Text = "PRODUCTO 6001:";
+            // 
+            // label19
+            // 
+            label19.AutoSize = true;
+            label19.Font = new Font("Segoe UI Black", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label19.Location = new Point(598, 685);
+            label19.Name = "label19";
+            label19.Size = new Size(168, 25);
+            label19.TabIndex = 24;
+            label19.Text = "PRODUCTO 6400:";
+            // 
+            // label20
+            // 
+            label20.AutoSize = true;
+            label20.Font = new Font("Segoe UI Black", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label20.Location = new Point(598, 894);
+            label20.Name = "label20";
+            label20.Size = new Size(168, 25);
+            label20.TabIndex = 29;
+            label20.Text = "PRODUCTO 9300:";
+            // 
+            // LABEL9300
+            // 
+            LABEL9300.AutoSize = true;
+            LABEL9300.Font = new Font("Segoe UI Black", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            LABEL9300.Location = new Point(600, 919);
+            LABEL9300.Name = "LABEL9300";
+            LABEL9300.Size = new Size(23, 25);
+            LABEL9300.TabIndex = 28;
+            LABEL9300.Text = "0";
+            // 
+            // groupBox3
+            // 
+            groupBox3.Location = new Point(576, 536);
+            groupBox3.Name = "groupBox3";
+            groupBox3.Size = new Size(937, 418);
+            groupBox3.TabIndex = 30;
+            groupBox3.TabStop = false;
+            // 
+            // groupBox5
+            // 
+            groupBox5.Controls.Add(btnscript);
+            groupBox5.Controls.Add(label21);
+            groupBox5.Controls.Add(txbscripts);
+            groupBox5.Location = new Point(1236, 29);
+            groupBox5.Name = "groupBox5";
+            groupBox5.Size = new Size(277, 501);
+            groupBox5.TabIndex = 31;
+            groupBox5.TabStop = false;
+            groupBox5.Text = "GENRACION DE SCRIPTS";
+            // 
+            // btnscript
+            // 
+            btnscript.Location = new Point(10, 111);
+            btnscript.Name = "btnscript";
+            btnscript.Size = new Size(147, 34);
+            btnscript.TabIndex = 20;
+            btnscript.Text = "SCRIPTS";
+            btnscript.UseVisualStyleBackColor = true;
+            btnscript.Click += btnscript_Click;
+            // 
+            // label21
+            // 
+            label21.AutoSize = true;
+            label21.Font = new Font("Segoe UI Black", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label21.Location = new Point(6, 31);
+            label21.Name = "label21";
+            label21.Size = new Size(149, 25);
+            label21.TabIndex = 4;
+            label21.Text = "RUTA DE DATA";
+            // 
+            // txbscripts
+            // 
+            txbscripts.Location = new Point(10, 71);
+            txbscripts.Name = "txbscripts";
+            txbscripts.Size = new Size(253, 31);
+            txbscripts.TabIndex = 5;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1160, 862);
+            ClientSize = new Size(1524, 965);
+            Controls.Add(groupBox5);
+            Controls.Add(label20);
+            Controls.Add(LABEL9300);
+            Controls.Add(label13);
+            Controls.Add(label17);
+            Controls.Add(label18);
+            Controls.Add(label19);
+            Controls.Add(LABEL6800);
+            Controls.Add(LABEL6500);
+            Controls.Add(LABEL6001);
+            Controls.Add(LABEL6400);
+            Controls.Add(label16);
             Controls.Add(label12);
             Controls.Add(label11);
             Controls.Add(progressBar2);
@@ -417,6 +604,7 @@
             Controls.Add(groupBox1);
             Controls.Add(groupBox2);
             Controls.Add(groupBox4);
+            Controls.Add(groupBox3);
             Name = "Form1";
             Text = "LECTOR DE DATOS";
             Load += Form1_Load;
@@ -429,6 +617,8 @@
             groupBox2.PerformLayout();
             groupBox4.ResumeLayout(false);
             groupBox4.PerformLayout();
+            groupBox5.ResumeLayout(false);
+            groupBox5.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -467,7 +657,22 @@
         private Label label12;
         private Button button5;
         private Label label14;
-        private Label label13;
+        private Label LABEL6400;
         private Label label15;
+        private Label label16;
+        private Label LABEL6001;
+        private Label LABEL6500;
+        private Label LABEL6800;
+        private Label label13;
+        private Label label17;
+        private Label label18;
+        private Label label19;
+        private Label label20;
+        private Label LABEL9300;
+        private GroupBox groupBox3;
+        private GroupBox groupBox5;
+        private Button btnscript;
+        private Label label21;
+        private TextBox txbscripts;
     }
 }

@@ -7,7 +7,15 @@
       "RelativeMoniker": "D:0:0:{E0F29FA5-1E7F-45A0-BE45-68B5BA15D293}|DataReader\\DataReader.csproj|solutionrelative:datareader\\datalector.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E0F29FA5-1E7F-45A0-BE45-68B5BA15D293}|DataReader\\DataReader.csproj|C:\\Users\\e_dohernandez\\Documents\\DataLector\\datareader\\datalector.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{E0F29FA5-1E7F-45A0-BE45-68B5BA15D293}|DataReader\\DataReader.csproj|c:\\users\\e_dohernandez\\documents\\datalector\\datareader\\entidades\\clienteent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E0F29FA5-1E7F-45A0-BE45-68B5BA15D293}|DataReader\\DataReader.csproj|solutionrelative:datareader\\entidades\\clienteent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E0F29FA5-1E7F-45A0-BE45-68B5BA15D293}|DataReader\\DataReader.csproj|c:\\users\\e_dohernandez\\documents\\datalector\\datareader\\datalector.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E0F29FA5-1E7F-45A0-BE45-68B5BA15D293}|DataReader\\DataReader.csproj|solutionrelative:datareader\\datalector.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E0F29FA5-1E7F-45A0-BE45-68B5BA15D293}|DataReader\\DataReader.csproj|c:\\users\\e_dohernandez\\documents\\datalector\\datareader\\datalector.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{E0F29FA5-1E7F-45A0-BE45-68B5BA15D293}|DataReader\\DataReader.csproj|solutionrelative:datareader\\datalector.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
@@ -18,8 +26,34 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 2,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "DataLector.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\e_dohernandez\\Documents\\DataLector\\DataReader\\DataLector.Designer.cs",
+              "RelativeDocumentMoniker": "DataReader\\DataLector.Designer.cs",
+              "ToolTip": "C:\\Users\\e_dohernandez\\Documents\\DataLector\\DataReader\\DataLector.Designer.cs",
+              "RelativeToolTip": "DataReader\\DataLector.Designer.cs",
+              "ViewState": "AgIAAHMCAAAAAAAAAAAAABUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-29T18:06:12.826Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ClienteEnt.cs",
+              "DocumentMoniker": "C:\\Users\\e_dohernandez\\Documents\\DataLector\\DataReader\\ENTIDADES\\ClienteEnt.cs",
+              "RelativeDocumentMoniker": "DataReader\\ENTIDADES\\ClienteEnt.cs",
+              "ToolTip": "C:\\Users\\e_dohernandez\\Documents\\DataLector\\DataReader\\ENTIDADES\\ClienteEnt.cs",
+              "RelativeToolTip": "DataReader\\ENTIDADES\\ClienteEnt.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-29T17:19:54.422Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
@@ -28,21 +62,22 @@
               "RelativeDocumentMoniker": "DataReader\\DataLector.cs",
               "ToolTip": "C:\\Users\\e_dohernandez\\Documents\\DataLector\\DataReader\\DataLector.cs",
               "RelativeToolTip": "DataReader\\DataLector.cs",
-              "ViewState": "AgIAACwAAAAAAAAAAAAgwDoAAAARAAAAAAAAAA==",
+              "ViewState": "AgIAANACAAAAAAAAAAAAAM4CAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-27T16:22:28.798Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "DataLector.cs [Dise\u00F1o]",
               "DocumentMoniker": "C:\\Users\\e_dohernandez\\Documents\\DataLector\\DataReader\\DataLector.cs",
               "RelativeDocumentMoniker": "DataReader\\DataLector.cs",
-              "ToolTip": "C:\\Users\\e_dohernandez\\source\\repos\\DataReader\\DataReader\\DataLector.cs [Dise\u00F1o]",
-              "RelativeToolTip": "..\\..\\source\\repos\\DataReader\\DataReader\\DataLector.cs [Dise\u00F1o]",
+              "ToolTip": "C:\\Users\\e_dohernandez\\Documents\\DataLector\\DataReader\\DataLector.cs [Dise\u00F1o]",
+              "RelativeToolTip": "DataReader\\DataLector.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-27T16:21:57.444Z"
+              "WhenOpened": "2025-07-29T22:08:17.375Z",
+              "EditorCaption": " [Dise\u00F1o]"
             }
           ]
         }

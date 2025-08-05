@@ -13,6 +13,10 @@ namespace DataReader.ENTIDADES
         public int id { get; set; }
         public string nombre { get; set; }
         public string cliente { get; set; }
-      
+
+        public string producto { get; set; }
+
+        public string tasa { get; set; }
+
     }
 }
